@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"
+    defer></script>
+  <script id="debug-script" src="https://cdn.jsdelivr.net/gh/MickShannahan/style-debug@latest/debug.min.js"
+    defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>🍦Ice Cream Parlor</title>
+</head>
+
+<body class="debug">
+  <main class="container-fluid">
+    <section class="row justify-content-center">
+      <div class="col-md-5">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Qty</th>
+              <th>Each</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody id="cart">
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row" colspan="4">
+                <div class="text-end px-3">
+                  <p>Total: <span id="total">$0.00</span></p>
+                  <button class="btn btn-success">Pay</button>
+                </div>
+              </th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION scoops -->
+    <section class="col-md-7">
+      <div class="row">
+        <h2 class=" text-center">Ice Cream</h2>
+        <div class="col-md-4">
+          <div onclick="orderItem('Vanilla')" class="card shadow text-center" role="button">
+            <img
+              src="https://images.unsplash.com/photo-1549395156-e0c1fe6fc7a5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTV8fHZhbmlsbGElMjBpY2UlMjBjcmVhbXxlbnwwfHwwfHx8MA%3D%3D"
+              alt="">
+            <p>Vanilla</p>
+            <span>$1.00</span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div onclick="orderItem('Cookie Dough')" class="card shadow text-center" role="button">
+            <img
+              src="https://images.unsplash.com/photo-1693839021706-46856cf2ace7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fGNvb2tpZSUyMGRvdWdofGVufDB8fDB8fHww"
+              alt="">
+            <p>Cookie Dough</p>
+            <span>$1.25</span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card shadow text-center" role="button">
+            <img
+              src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3RyYXdiZXJyeSUyMGljZSUyMGNyZWFtfGVufDB8fDB8fHww"
+              alt="">
+            <p>Strawberry</p>
+            <span>$1.25</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION toppings -->
+    <section class="col-md-7">
+      <div class="row">
+        <h2 class=" text-center">Toppings</h2>
+        <div class="col-md-4">
+          <div class="card shadow text-center" role="button">
+            <img
+              src="https://plus.unsplash.com/premium_photo-1663839412090-27840de8cba0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c3ByaW5rbGVzfGVufDB8fDB8fHww"
+              alt="">
+            <p>Sprinkles</p>
+            <span>$0.25</span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card shadow text-center" role="button">
+            <img
+              src="https://plus.unsplash.com/premium_photo-1726072358526-542e07d58e36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2hvY29sYXRlJTIwY2hpcHN8ZW58MHx8MHx8fDA%3D"
+              alt="">
+            <p>Chocolate Chips</p>
+            <span>$0.25</span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card shadow text-center" role="button">
+            <img
+              src="https://images.unsplash.com/photo-1600359756098-8bc52195bbf4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGd1bW15JTIwd29ybXN8ZW58MHx8MHx8fDA%3D"
+              alt="">
+            <p>Gummy Worms</p>
+            <span>$0.75</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION vessels -->
+    <section class="col-md-7">
+      <div class="row">
+        <h2 class=" text-center">Vessels</h2>
+        <div class="col-md-4">
+          <div class="card shadow text-center" role="button">
+            <img
+              src="https://images.unsplash.com/photo-1559703248-dcaaec9fab78?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fHdhZmZsZSUyMGNvbmV8ZW58MHx8MHx8fDA%3D"
+              alt="">
+            <p>Waffle Cone</p>
+            <span>$3.00</span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card shadow text-center" role="button">
+            <img
+              src="https://images.unsplash.com/photo-1560008581-09826d1de69e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTR8fHZhbmlsbGElMjBpY2UlMjBjcmVhbXxlbnwwfHwwfHx8MA%3D%3D"
+              alt="">
+            <p>Sprinkle Bowl</p>
+            <span>$7.00</span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card shadow text-center" role="button">
+            <img
+              src="https://images.unsplash.com/photo-1650626106432-7865c4ca697e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y2lubmFtb24lMjByb2xsfGVufDB8fDB8fHww"
+              alt="">
+            <p>Cinnamon Roll Bowl</p>
+            <span>$19.00</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+  </main>
+
+
+
+
+
+
+
+
+
+  <script src="main.js"></script>
+</body>
+
+</html>
